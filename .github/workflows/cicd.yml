@@ -33,4 +33,4 @@ jobs:
         run: npm run build
 
       - name: Deploy project to Apps Script
-        run: bash deploy.sh ${{ github.event.workflow_run.head_commit.message }}
+        run: bash deploy.sh ${{ github.event.head_commit.message }}
