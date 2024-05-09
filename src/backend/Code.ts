@@ -1,4 +1,4 @@
 export function doGet() {
     const html = HtmlService.createHtmlOutputFromFile('index');
-    return html;
+    return html.setTitle('Index Page - CI-CD Apps Script');
 }
