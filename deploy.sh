@@ -1,11 +1,11 @@
 #!/bin/bash
 
-npm run build
 for f in ./src/backend/*
 do
     echo $f
     cp $f ./dist
 done
+
 clasp push -f
 
 deployments=$(clasp deployments)
@@ -15,7 +15,7 @@ deployment_id=$(echo "$deployment_string" | cut -d' ' -f "$id_start")
 deployment_id="${deployment_id##-}"
 
 if [ -z "$deployment_id" ]; then
-    clasp deploy
+    clasp deploy -d "$@"
 else
-    clasp deploy -i "$deployment_id"
+    clasp deploy -i "$deployment_id" -d "$@"
 fi
