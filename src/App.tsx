@@ -7,7 +7,7 @@ function App() {
   const [countDouble, setCountDouble] = useState(0);
 
   function handleCountDoubleButtonClick() {
-    setCountDouble((preValue) => preValue * 2);
+    setCountDouble((preValue) => preValue === 0 ? 1 : preValue * 2);
   }
 
   return (
@@ -23,7 +23,7 @@ function App() {
           count is {count}
         </button>
 
-        <button onClick={() => handleCountDoubleButtonClick()}>
+        <button onClick={() => handleCountDoubleButtonClick()} style={{marginLeft: 10}}>
           countDouble is {countDouble}
         </button>
         <p>
